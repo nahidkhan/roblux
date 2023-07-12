@@ -56,7 +56,7 @@ class _InPageState extends State<InPage> {
       backgroundColor: const Color.fromARGB(255, 224, 224, 224),
       appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 10, 11, 11),
-          title: const Text("JOMAKHOROCH"),
+          title: const Text("JOMAKHOROC"),
           actions: const [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
