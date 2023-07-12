@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'dart:core';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:roblux/one.dart';
-import 'package:http/http.dart' as http;
 
 void main(List<String> args) {
   runApp(const InPoint());
@@ -17,9 +15,9 @@ class InPoint extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(cardColor: Color.fromARGB(255, 250, 7, 3)),
+      theme: ThemeData(cardColor: const Color.fromARGB(255, 250, 7, 3)),
       title: "The beginning",
-      home: InPage(),
+      home: const InPage(),
     );
   }
 }
@@ -42,7 +40,7 @@ class _InPageState extends State<InPage> {
   }
 
   _timeNow() {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         currentTime = DateTime.now();
       });
@@ -55,14 +53,14 @@ class _InPageState extends State<InPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 224, 224, 224),
+      backgroundColor: const Color.fromARGB(255, 224, 224, 224),
       appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 10, 11, 11),
           title: const Text("JOMAKHOROCH"),
-          actions: [
+          actions: const [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [Icon(Icons.add)],
+              children: [Icon(Icons.add)],
             )
           ]),
       body: SingleChildScrollView(
@@ -75,11 +73,11 @@ class _InPageState extends State<InPage> {
                 child: Container(
                   decoration: BoxDecoration(boxShadow: [
                     BoxShadow(
-                      color: Color.fromARGB(255, 118, 230, 77)
+                      color: const Color.fromARGB(255, 118, 230, 77)
                           .withOpacity(0.5), //color of shadow
                       spreadRadius: 5, //spread radius
                       blurRadius: 7, // blur radius
-                      offset: Offset(0, 2), // changes position of shadow
+                      offset: const Offset(0, 2), // changes position of shadow
                       //first paramerter of offset is left-right
                       //second parameter is top to down
                     ),
@@ -90,32 +88,30 @@ class _InPageState extends State<InPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: Container(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(_timeNow().toString()),
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(200),
-                                child: Image.network(
-                                  "https://th.bing.com/th/id/OIP.rGKp5LVW0xDaG09Lhk5QOgHaE8?pid=ImgDet&rs=1",
-                                  height: 100,
-                                  width: 100,
-                                  fit: BoxFit.cover,
-                                ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(_timeNow().toString()),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(200),
+                              child: Image.network(
+                                "https://th.bing.com/th/id/OIP.rGKp5LVW0xDaG09Lhk5QOgHaE8?pid=ImgDet&rs=1",
+                                height: 100,
+                                width: 100,
+                                fit: BoxFit.cover,
                               ),
-                              Text(
-                                "Rual Robin",
-                                style: TextStyle(fontSize: 20),
-                              )
-                            ],
-                          ),
+                            ),
+                            const Text(
+                              "Rual Robin",
+                              style: TextStyle(fontSize: 20),
+                            )
+                          ],
                         ),
                       ), // 2nd one
-                      Expanded(
+                      const Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(40),
+                          padding: EdgeInsets.all(40),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [OneItem(), TwoItem(), ThreeItem()],
@@ -127,11 +123,9 @@ class _InPageState extends State<InPage> {
                 ),
               ),
               //end of first container
-              Card(
+              const Card(
                 elevation: 40,
-                child: Container(
-                  child: Text("sata"),
-                ),
+                child: Text("sata"),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height,
@@ -140,7 +134,7 @@ class _InPageState extends State<InPage> {
                     itemCount: 20,
                     itemBuilder: (context, int? fuk) {
                       return ListTile(
-                        leading: Icon(Icons.abc),
+                        leading: const Icon(Icons.abc),
                         title: Text("name $fuk"),
                       );
                     }),
